@@ -1,0 +1,41 @@
+<mat-card>
+    <form>
+      <div class="form-group">
+        <div class="form-group">
+            <label for="exampleInputPassword1" class = "this-size" >Name :</label> 
+            
+            <p></p>
+            <input type="text" #name class="form-control" id="exampleInputPassword1" value = {{plcname}} placeholder="Name">
+        </div>
+        <p></p>
+        <label for="exampleInputEmail1" class = "this-size">Email address : </label>
+        <p></p>
+        <input type="email" #email class="form-control" id="exampleInputEmail1" value = {{plcemail}} aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <p></p>
+        <label for="exampleInputPassword1" class = "this-size">Country :</label> 
+        <p></p>
+        <input type="text" #country value = {{plccountry}} class="form-control" id="exampleInputPassword1" placeholder="Country">
+        <p></p>
+        <label for="exampleInputPassword1" class = "this-size">Phone :</label> 
+        <p></p>
+        <input type="text" #phone value = {{plcphone}} class="form-control" id="exampleInputPassword1" placeholder="Phone Number">
+        <p></p>
+        <label for="exampleInputPassword1" class = "this-size">Status :</label> 
+        <p></p>
+        <input type="text" #status value = {{plcstatus}} class="form-control" id="exampleInputPassword1" placeholder="Status">
+        <p></p>
+        <mat-label>Created At: </mat-label>
+      <input value={{plcdate}} matInput #date [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    
+      </div>
+      <p></p>
+      
+      <button class="btn btn-success" routerLink="/listing" routerLinkActive="active" (click)="updateuser(name.value,email.value,country.value,phone.value,status.value,date.value)">Submit</button>
+      <button class="btn btn-danger btn-space4" routerLink="/listing" routerLinkActive="active">Go Back</button>
+    </form>
+    </mat-card>
+
+    <!-- (click)="adduser(name.value,email.value,country.value,phone.value,status.value,date.value)" -->

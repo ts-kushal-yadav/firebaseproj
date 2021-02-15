@@ -1,0 +1,45 @@
+<mat-toolbar style="position: relative; background-color: rgb(250, 250, 250);">
+     User Listing
+
+     <button class="btn btn-outline-primary btn-space" routerLink="/adding" routerLinkActive="active">Add Post</button>
+</mat-toolbar>
+
+<li><a routerLink="/adding" routerLinkActive="active">Add</a></li>
+<p></p>
+
+<mat-card *ngIf="users.length==0">No users available</mat-card>
+
+<mat-card *ngIf="users.length!=0">
+    <div *ngFor="let user of users">
+        <p></p>
+        <p>Name : {{user.name}}</p>
+        <p>Email : {{user.email}}</p>
+        <p>Country: {{user.country}}</p>
+        <p>Phone : {{user.phone}}</p>
+        <p>Status : {{user.status}}</p>
+        <p>Created : {{user.date}}</p>
+        <button routerLink="/editing" routerLinkActive="active" class = "btn btn-outline-warning " (click)="updateuser(user.name)">Update</button>
+        <button class = "btn btn-outline-danger btn-space3" #deletion (click)="deleteuser(user.name)">Delete</button>
+    </div>
+</mat-card>
+
+<mat-toolbar style="position: relative; background-color: rgb(250, 250, 250);">
+Database from Firestore :
+</mat-toolbar>
+
+
+<mat-card>
+    <div *ngFor="let item of items | async">
+        <p></p>
+        <p>Name : {{item.name}}</p>
+        <p>Email : {{item.email}}</p>
+        <p>Country: {{item.country}}</p>
+        <p>Phone : {{item.phone}}</p>
+        <p>Status : {{item.status}}</p>
+        <p>Created : {{item.date}}</p>
+        <!-- <button routerLink="/editing" routerLinkActive="active" class = "btn btn-outline-warning " (click)="updateuser(user.name)">Update</button>
+        <button class = "btn btn-outline-danger btn-space3" #deletion (click)="deleteuser(user.name)">Delete</button> -->
+    </div>
+</mat-card>
+
+<p></p>
